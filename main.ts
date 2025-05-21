@@ -1,3 +1,9 @@
+function multiplikation () {
+    Zahl1 = randint(1, 10)
+    Zahl2 = randint(1, 10)
+    Aufgabe = "" + Zahl1 + "*" + Zahl2
+    Antwort = 0
+}
 function addition () {
     Zahl1 = randint(1, 50)
     Zahl2 = randint(1, 50)
