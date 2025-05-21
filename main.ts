@@ -1,7 +1,7 @@
 function addition () {
     Zahl1 = randint(1, 50)
     Zahl2 = randint(1, 50)
-    Aufgabe = "Was ist" + Zahl1 + "+" + Zahl2 + "?"
+    Aufgabe = "" + Zahl1 + "+" + Zahl2
     Antwort = 0
 }
 let Zahl2 = 0
@@ -32,32 +32,33 @@ while (input.pinIsPressed(TouchPin.P2) == false) {
 if (Rechenart == 1) {
     addition()
     basic.showString(Aufgabe)
-    while (!(input.pinIsPressed(TouchPin.P2))) {
-        if (input.buttonIsPressed(Button.B)) {
-            Antwort += 1
-            basic.showString("" + (Antwort))
-        }
-        if (input.buttonIsPressed(Button.A)) {
-            Antwort += -1
-            basic.showString("" + (Antwort))
-        }
-        if (input.pinIsPressed(TouchPin.P0)) {
-            Antwort += -10
-            basic.showString("" + (Antwort))
-        }
-        if (input.pinIsPressed(TouchPin.P3)) {
-            Antwort += 10
-            basic.showString("" + (Antwort))
-        }
-    }
-    if (Antwort == Zahl1 + Zahl2) {
-        basic.setLedColor(0x00ff00)
-        basic.showIcon(IconNames.Happy)
-    } else {
-        basic.setLedColor(0xff0000)
-        basic.showString("Loesung" + (Zahl1 + Zahl2))
-        basic.showIcon(IconNames.No)
-    }
-    basic.pause(1500)
-    basic.turnRgbLedOff()
 }
+while (!(input.pinIsPressed(TouchPin.P2))) {
+    if (input.buttonIsPressed(Button.B)) {
+        Antwort += 1
+        basic.showString("" + (Antwort))
+    }
+    if (input.buttonIsPressed(Button.A)) {
+        Antwort += -1
+        basic.showString("" + (Antwort))
+    }
+    if (input.pinIsPressed(TouchPin.P0)) {
+        Antwort += -10
+        basic.showString("" + (Antwort))
+    }
+    if (input.pinIsPressed(TouchPin.P3)) {
+        Antwort += 10
+        basic.showString("" + (Antwort))
+    }
+}
+if (Antwort == Zahl1 + Zahl2) {
+    basic.setLedColor(0x00ff00)
+    basic.showIcon(IconNames.Happy)
+} else {
+    basic.setLedColor(0xff0000)
+    basic.showString("Loesung" + (Zahl1 + Zahl2))
+    basic.showIcon(IconNames.No)
+}
+basic.pause(1500)
+basic.turnRgbLedOff()
+basic.clearScreen()
