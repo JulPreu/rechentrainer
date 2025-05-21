@@ -3,15 +3,18 @@ function multiplikation () {
     Zahl2 = randint(1, 10)
     Aufgabe = "" + Zahl1 + "*" + Zahl2
     Antwort = 0
+    richtigesErgebnis = Zahl1 * Zahl2
 }
 function addition () {
     Zahl1 = randint(1, 50)
     Zahl2 = randint(1, 50)
     Aufgabe = "" + Zahl1 + "+" + Zahl2
     Antwort = 0
+    richtigesErgebnis = Zahl1 + Zahl2
 }
 let Zahl2 = 0
 let Zahl1 = 0
+let richtigesErgebnis = 0
 let Antwort = 0
 let Aufgabe = ""
 let Rechenart = 0
@@ -39,6 +42,10 @@ if (Rechenart == 1) {
     addition()
     basic.showString(Aufgabe)
 }
+if (Rechenart == 3) {
+    multiplikation()
+    basic.showString(Aufgabe)
+}
 while (!(input.pinIsPressed(TouchPin.P2))) {
     if (input.buttonIsPressed(Button.B)) {
         Antwort += 1
@@ -57,12 +64,12 @@ while (!(input.pinIsPressed(TouchPin.P2))) {
         basic.showString("" + (Antwort))
     }
 }
-if (Antwort == Zahl1 + Zahl2) {
+if (Antwort == richtigesErgebnis) {
     basic.setLedColor(0x00ff00)
     basic.showIcon(IconNames.Happy)
 } else {
     basic.setLedColor(0xff0000)
-    basic.showString("Loesung" + (Zahl1 + Zahl2))
+    basic.showString("Loesung" + richtigesErgebnis)
     basic.showIcon(IconNames.No)
 }
 basic.pause(1500)
